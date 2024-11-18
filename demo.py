@@ -1,4 +1,3 @@
-"""
 # Color print demo
 from helpers.functions.outputs import color_print
 
@@ -65,4 +64,49 @@ def do_something():
     return 3.14
 
 do_something()
-"""
+
+
+# Color class demo
+from helpers.classes.inherit import Color
+
+class Test(Color, int):
+    pass
+
+test = Test(42)
+test.red()
+test.green()
+test.blue()
+
+
+# Logged class demo
+from helpers import classes as class_helpers
+
+class Test(class_helpers.inherit.Logged):
+
+    def __init__(self):
+        self.name = 'Logged class'
+
+test = Test()
+test.name
+
+
+# Generator class demo
+from helpers.classes import generators as gen
+
+class Class1:
+    pass
+
+class Class2:
+    pass
+
+generator = gen.InheritanceGenerator()
+print(generator('StrangeClass', int, Class1, Class2))
+
+
+# Dynamic Context Manager class demo
+from helpers.classes.generators import DynamicContextManager as DynCM
+
+cm = DynCM(enter=lambda *_: print('Start'), exit=lambda *_: print('End'))
+
+with cm:
+    print('Inside')
